@@ -1,0 +1,38 @@
+{% extends 'app1/base.html' %}
+{% block content %}
+      <h1>STUDENTS LIST</h1>   
+      <table >
+        <thead>
+            <th>Student Roll NO</th>
+            <th>Student Name</th>
+            <th>Student Phone No</th>
+            <th>Student Mark1</th>
+            <th>Student Mark2</th>
+            <th>Student Mark3</th>
+            <th>Actions</th>
+        </thead>
+
+     <tbody>
+        {% for data in students_list %}
+        <tr>
+
+            <td>{{data.srollno}}</td>
+            <td>{{data.sname}}</td>
+            <td>{{data.sphoneno}}</td>
+            <td>{{data.sm1}}</td>
+            <td>{{data.sm2}}</td>
+            <td>{{data.sm3}}</td>
+            <td><a class="btn btn-warning" href="/update/{{data.pk}}/">Update</a>&nbsp;&nbsp;<a class="btn btn-danger" href="/delete/{{data.pk}}/">Delete</a></td>
+        </tr>
+        
+      {% endfor %}
+        
+
+     </tbody>
+      
+      
+       </table>
+       <br><br>
+       <a class="btn btn-primary" href="/insert">Add New Stundet</a>
+           
+{% endblock  %}
